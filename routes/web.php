@@ -7,9 +7,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/product', [App\Http\Controllers\ProductController::class,'index'])->name('products.index');
+Route::get('/product', [App\Http\Controllers\ProductController::class,'index'])->name('product.index');
 
-Route::get('/product/create', [App\Http\Controllers\ProductController::class,'create'])->name('products.create');
+Route::get('/product/create', [App\Http\Controllers\ProductController::class,'create'])->name('product.create');
 
-Route::get('/product', [App\Http\Controllers\ProductController::class,'store'])->name('products.store');
+Route::post('/product', [App\Http\Controllers\ProductController::class,'store'])->name('product.store');
 
+Route::get('/product/{product}/edit', [App\Http\Controllers\ProductController::class,'edit'])->name('product.edit');
+
+Route::put('/product/{product}/update', [App\Http\Controllers\ProductController::class,'update'])->name('product.update');
